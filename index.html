@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>MICE플랫폼 퍼블리싱 리스트</title>
+	<style type="text/css">
+		html, body { margin: 0; padding: 0; }
+		ul, li { padding: 0; margin: 0; list-style: none; }
+		body, td { color: #6b6b6b; font-style: normal; font-variant: normal; font-size: 12px; line-height: normal; font-family:dotum, 돋움, Sans-Serif; }
+		table { margin-bottom: 150px; border-collapse: collapse; border-spacing: 0; }
+		#g_header h1 { height: 60px; line-height: 45px; padding-left: 28px; margin-top: 0; color: #fff; background: #424242; }
+		#g_body { padding: 0 30px; }
+		.guide_table { width: 100%; }
+		.guide_table thead th { background: #f1f1f1; padding:15px 3px; border: solid 1px #dadada; }
+		.guide_table tbody td { padding:8px 3px; border: solid 1px #dadada; }
+		.guide_table tbody td.filelink a { text-decoration: none; color: #0177bd; }
+		.guide_table tr.dep01 td { border-top: solid 2px #dadada; }	
+		.red { color: #ff0000; }
+		.nofile { background: #D9E3E6; font-weight: bold; text-align: center; }
+		#g_footer { padding: 30px; text-align: right; }
+		.eng td { background: #e3edec; }
+		.issue { font-size: 11px; font-family: 'dotum'; color: #000; }
+		.issue li { margin-top: 10px; }
+		.issue li:first-child { margin-top: 0; }
+		.issue strong { margin-bottom: 3px; display: block; color: #ff6000; }
+		.issue span { color: #ff6000; }
+		.color { background-color: #bbf7fe; }
+		table tr td:first-child { text-align: center; }
+		.design_summary_web,
+		.design_summary_tab,
+		.design_summary_mob { display: inline-block; color: rosybrown; font-weight: bold; font-size: 12px; margin-right: 30px; }
+		.coding_summary_web,
+		.coding_summary_tab,
+		.coding_summary_mob { display: inline-block; color: red; font-weight: bold; font-size: 12px; margin-right: 30px; }
+		.dev_summary { display: inline-block; color: green; font-weight: bold; font-size: 12px; margin-right: 30px; }
+		.coding_stat_web,
+		.coding_stat_tab,
+		.coding_stat_mob { background: #ddffca; }
+		.dev_stat_web,
+		.dev_stat_web,
+		.dev_stat_web { background: rosybrown; color: #fff; }
+		.bg_gray { background: #f0f0f0; }
+		.tab_li > li { float: left; width: 100px; height: 30px; line-height: 30px; text-align: center; background: #424242; color: #fff; margin-right: 5px; margin-bottom: 5px; }
+		.tab_li > li > a { color: #fff; text-decoration: none; display: block; }
+		.tab_li > li.on { font-weight: bold; text-decoration: underline; font-size: 16px; }
+		td strong { color: red; }
+		td strong.title { color: #000; }
+		.auto-style1 { height: 20px; }
+		.auto-style2 { background: #ddffca; height: 20px; }
+		.title_large{font-size:13px;color:#000;}
+	</style>
+	<script src="./resources/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			var page_length = $('.guide_table tbody .coding_stat_web').length;
+			var page_length_dev = $('.guide_table tbody .dev_stat_web').length;
+			set_design_process = function () {
+				//web
+				var design_ended_web = 0;
+				$('.design_stat_web').each(function () {
+					var design_stat_web = $(this).text();
+					if (design_stat_web == '완료') {
+						design_ended_web = design_ended_web + 1;
+					}
+				});
+				var per_complete_web = parseInt((design_ended_web / page_length) * 100);
+				$('.design_summary_web').text('디자인(웹) 진행률 [ ' + design_ended_web + ' page / ' + page_length + ' page] ' + per_complete_web + '% 완료');
+				//web end
+
+			}
+
+			set_coding_process = function () {
+
+				//web
+				var coding_ended_web = 0;
+				$('.coding_stat_web').each(function () {
+					var coding_stat_web = $(this).text();
+					if (coding_stat_web == '완료') {
+						coding_ended_web = coding_ended_web + 1;
+					}
+				});
+				var per_complete_web = parseInt((coding_ended_web / page_length) * 100);
+				$('.coding_summary_web').text('코딩(웹) 진행률 [ ' + coding_ended_web + ' page / ' + page_length + ' page] ' + per_complete_web + '% 완료');
+			}
+
+			set_dev_process = function () {
+				var dev_ended = 0;
+				$('.dev_stat_web').each(function () {
+					var dev_stat = $(this).text();
+					if (dev_stat == '완료') {
+						dev_ended = dev_ended + 1;
+					}
+				});
+				var per_complete = parseInt((dev_ended / page_length_dev) * 100);
+				$('.dev_summary').text('개발 진행률 [ ' + dev_ended + ' page / ' + page_length_dev + ' page] ' + per_complete + '% 완료');
+			}
+
+			//set_design_process();
+			set_coding_process();
+			set_dev_process();
+
+
+			$('a').each(function () {
+				$(this).attr('target', '_blank')
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<div id="g_header">
+		<h1 style="line-height:60px;">MICE플랫폼 퍼블리싱 리스트</h1>
+	</div>
+	<div id="g_body" style="max-width:1280px;margin:40px auto 0;">
+		<div class="contents">
+			<h3>Flie List</h3>
+			<p class="guide_summary">
+			</p>
+			<ul style="margin-bottom: 20px;">
+				<li class="coding_summary_web"></li>			</ul>
+		
+			<table class="guide_table" style="table-layout: auto;">
+				<colgroup>
+					<col style="width:13%;">
+					<col style="width:17%;">
+					<col style="width:25%;">
+					<col style="width:10%;">
+					<col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>구분</th>
+						<th>2 Depth</th>					
+						<th>파일명</th>					
+						<th>퍼블리싱</th>
+						<th>비고</th>
+					</tr>
+				</thead>
+				<tbody>  
+					<!-- <tr>
+						<td style="text-align:left;padding-left:20px;font-weight:bold;" rowspan="2">Why?</td>
+						<td style="text-align:center;"></td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/main.html" target="_blank">main.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>	
+					<tr>					
+						<td style="text-align:center;"></td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/index.html" target="_blank">index.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>-->
+					<tr>
+						<td style="text-align:left;padding-left:20px;font-weight:bold;"><strong class="title_large">Features Main</strong></td>
+						<td style="text-align:left;padding-left:10px;"></td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_main.html" target="_blank">features_main.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>
+					<tr>
+						<td style="text-align:left;padding-left:20px;font-weight:bold;" rowspan="11"><strong class="title_large">Features Main</strong></td>
+						<td style="text-align:left;padding-left:10px;">데이터 애널리틱스</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_01.html" target="_blank">features_01.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">홍보웹사이트</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_02.html" target="_blank">features_02.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>				
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">멀티미디어스크리밍</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_03.html" target="_blank">features_03.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>	
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">온라인네트워킹</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_04.html" target="_blank">features_05.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>	
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">통합운영관리자</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_05.html" target="_blank">features_05.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>	
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">온라인부스</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_06.html" target="_blank">features_06.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>	
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">온라인세션</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_07.html" target="_blank">features_07.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>	
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">비즈매칭</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_08.html" target="_blank">features_08.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>	
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">인게이지먼트</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_09.html" target="_blank">features_09.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>		
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">브랜딩</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_10.html" target="_blank">features_10.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>		
+					<tr>					
+						<td style="text-align:left;padding-left:10px;">메타버스</td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_11.html" target="_blank">features_11.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>			
+					<!-- <tr>
+						<td style="text-align:left;padding-left:20px;font-weight:bold;" rowspan="2">Solution</td>
+						<td style="text-align:left;padding-left:10px;"></td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/login.html" target="_blank">login.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>
+					<tr>					
+						<td style="text-align:left;padding-left:10px;"> <strong class="title"></strong></td>
+						<td style="text-align:left;padding-left:10px;"><a href="./html/hub/features_data-analytics.html" target="_blank">features_data-analytics.html</a></td>					
+						<td style="text-align:center;" class="coding_stat_web">완료</td>
+						<td style="text-align:center;"></td>
+					</tr>	 -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

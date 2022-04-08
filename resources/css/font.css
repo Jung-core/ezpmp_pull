@@ -1,0 +1,27 @@
+/* Noto Sans KR */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans&display=swap');
+
+/* MICEGothic */
+@font-face {
+    font-family: 'MICEGothic';
+    src: url('fonts/MICEGothic-OTF.otf') format('otf'),
+         url('fonts/MICEGothic.ttf')format('truetype'), /* Safari, Android, iOS */
+         url('fonts/MICEGothic.woff') format('woff'), /* Modern Browsers */
+         url('fonts/MICEGothic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/MICEGothic.eot') format('embedded-opentype'); 
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MICEGothic';
+    src: url('fonts/MICEGothicBold-OTF.otf') format('otf'),
+         url('fonts/MICEGothicBold.ttf')format('truetype'), /* Safari, Android, iOS */
+         url('fonts/MICEGothicBold.woff') format('woff'), /* Modern Browsers */
+         url('fonts/MICEGothicBold.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/MICEGothicBold.eot') format('embedded-opentype'); 
+    font-weight: 700;
+    font-style: normal;
+}
